@@ -1,0 +1,63 @@
+Function find_sum(numbers: Array of Integers,
+						target: Integer): Array of Tuples of Integers
+	pairs = [] : Array
+	for i:= 0 to length of numbers do
+		target_val = target - numbers[i] : Integer
+		if binary_search(numbers, 0, length of numbers - 1, target_val) then
+			pair = (numbers[i], target_val,) : Tuple of Integers
+			if not (j in pairs foreach j in [pair, pair[::-1]] endforeach) then
+				pairs += pair
+			endif
+		endif
+	endfor
+	return pairs
+
+
+Function binary_search(arr: Array of Integers, head: Integer, tail: Integer,
+						target_val: Integer): Boolean
+	if tail >= head then
+		mid = head + (tail - head) // 2 : Integer
+		if arr[mid] == target_val then
+			return True
+		else if arr[mid] > target_val then
+			return binary_search(arr, head, mid - 1, target_val)
+		else
+			return binary_search(arr, mid + 1, tail, target_val)
+		endif
+	else
+		return False
+
+
+Function merge(listA: Array of Integers,
+						listB: Array of Integers): Array of Integers
+	sorted = [] : Array
+	i = j = 0 : Integer
+	while i < length of listA and j < length of listB do
+		if listA[i] < listB[j] then
+			sorted += listA[i]
+			i+=1
+		else
+			sorted += listB[j]
+			j+=1
+		endif
+	endwhile
+	return sorted
+
+
+Function split_text(text: String, delimeters: String): Array of Strings
+	split_strings = [] : Array
+	index = prev_word_point = 0 : Integer
+	foreach character in text do
+		if character == delimeters[index] then
+			index += 1
+				if length of delimeters == index then
+					split_strings += text[prev_word_point:index]
+					prev_word_point := index
+					index := 0
+				endif
+		else
+			index := 0
+		endif
+	endforeach
+	split_strings += text[prev_word_point:]
+	return split_strings

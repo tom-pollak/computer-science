@@ -1,0 +1,57 @@
+Funtion cont_sub_list(arr: Array of Integers) : Integer
+	max_sum = 0 : Integer
+	cur_sum = 0 : Integer
+	foreach number in arr do
+		if cur_sum + number > 0 then
+			cur_sum := cur_sum + number
+			if cur_sum > max_sum then
+				max_sum := cur_sum
+			endif
+		else
+			cur_sum = 0
+		endif
+	return max_sum
+
+
+--------------------------------------------------------------------------------
+
+
+Funtion get_sum(matrix: Array of Arrays of Integers,
+						top: Integer, bot: Integer) : Integer
+	mat_sum = 0 : Integer
+	for i := top[0] to bot[0] + 1 do
+		for j := top[1] to top[1] + 1 do
+			mat_sum := mat_sum + matrix[i][j]
+		endfor
+	endfor
+	return mat_sum
+
+Funtion get_rec(matrix: Array of Arrays of Integers,
+						max_sum: Integer, i: Integer, j: Integer) : Integer
+	top = [i, j] : Integer
+	bot = [i, j] : Integer
+	bp = length of matrix : Integer
+	for k := top[1] to bp do
+		bot := [i, k - 1]
+		for l := top[0] to length of matrix[i] do
+			bot[0] := l - 1
+			mat_sum = get_sum(matrix, top, bot) : Integer
+			if mat_sum > max_sum then
+				max_sum := mat_sum
+			elif mat_sum < 0 then
+				bp := l
+				break
+			endif
+		endfor
+	endfor
+	return max_sum
+
+
+Funtion max_sub_matrix(matrix: Array of Arrays of Integers) : Integer
+	max_sum = 0 : Integer
+	for i := 0 to length of matrix do
+		for j := to length of matrix[i] do
+			max_sum = get_rec(matrix, max_sum, i, j)
+		endfor
+	endfor
+	return max_sum
