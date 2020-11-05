@@ -15,7 +15,7 @@ semple_text = (
 ######################### EXERCISE 1 ##########################################
 
 
-def split_text(text, separators):
+def split_text(text, separators=''):
     tokens = []
     start = 0
     for i, letter in enumerate(text):
@@ -53,21 +53,16 @@ def flatten(list_2D):
     for arr in list_2D:
         for el in arr:
             l.append(el)
-    print(l)
     return l
 
 
 def rasterise(list_1D, width):
     list_2D = []
-    if len(list_1D) % width != 0:
+    if width <= 0 or len(list_1D) % width != 0:
         return None
-    for i in range(len(list_1D) % width):
+    for i in range(len(list_1D) // width):
         temp = []
-        for j in range(i, i + width):
+        for j in range(i * width, (i + 1) * width):
             temp.append(list_1D[j])
         list_2D.append(temp[:])
-    print(list_2D)
     return list_2D
-
-
-rasterise([1, 2, 3, 4, 5, 6, 7, 8], 4)
