@@ -1,5 +1,10 @@
 def sum_even_numbers(numbers):
     total = 0
     for n in numbers:
-        total = n
+        if n % 2 == 0:
+            total += n
     print(total)
+    return total
+
+
+# sum_even_numbers([1, 2, 3, 4])

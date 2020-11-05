@@ -1,8 +1,8 @@
 import unittest
 from practical_5 import split_text
 
-class TestExo1(unittest.TestCase):
 
+class TestExo1(unittest.TestCase):
     def testEmptyText(self):
         self.assertEqual([], split_text(""))
 
@@ -21,6 +21,7 @@ class TestExo1(unittest.TestCase):
     def testTextWithoutRightDelimiter(self):
         self.assertEqual(["  As Python's creator, I'd like to say  "], \
             split_text("  As Python's creator, I'd like to say  ", "!>"))
+
 
 if __name__ == "__main__":
     unittest.main()

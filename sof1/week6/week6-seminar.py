@@ -53,6 +53,5 @@ matrix = [
 max_sum = max_sub_matrix(matrix)
 print(max_sum)
 
-
 # max_sum = max_sub_list([-2, 1, -3, 4, -1, 2, 1, -5, 4])
 # print(max_sum)
