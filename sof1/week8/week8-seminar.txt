@@ -1,0 +1,57 @@
+Function find_infulencer(following,
+                    person_index=0,
+                    follower_index=0,
+                    first_run=True):
+    follower_index := (follower_index + 1) % len(following)
+    # First item does not check prev item so can't be included in the +1
+    if person_index == follower_index + 1 or person_index == follower_index == 0 then
+        return following[person_index]
+    elif person_index == 0 and not first_run then
+        return 1
+	endif
+
+    # Not following next person
+    if following[person_index][follower_index] == 0 then
+        # Next person following current person
+        if following[follower_index][person_index] == 1 then
+            infulencer = find_infulencer(following, person_index,
+                                         follower_index, False)
+        else:
+            # Neither can be infulencers
+            infulencer = find_infulencer(following, follower_index + 1,
+                                         follower_index + 1, False)
+		endif
+
+    # Next person not following current person
+    elif following[person_index + 1][person_index] == 0 then
+        # Next person could be infulencer
+        infulencer = find_infulencer(following, follower_index,
+                                     follower_index, False)
+    else:
+        # Neither can be infulencers
+        infulencer = find_infulencer(following, follower_index + 1,
+                                     follower_index + 1, False)
+	endif
+    return infulencer
+
+
+Function connexion_degree(network, source, target)
+    queue = [{'name': source, 'weight': 0}]
+    visited = []
+    while queue is not empty:
+        connection = pop first element in queue
+        visited.append(connection['name'])
+        if connection['name'] == target then
+            if connection['weight'] > 3 then
+                return 0
+			endif
+            return connection['weight']
+		endif
+        foreach vertex in name of vertexes in network:
+            if vertex not in queue or visited:
+                queue.append({
+                    'name': vertex, 'weight': connection['weight'] + 1
+                })
+		endforeach
+	endwhile
+    return 0
