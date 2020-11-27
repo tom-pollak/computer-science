@@ -48,7 +48,7 @@ Function connexion_degree(network, source, target)
             return connection['weight']
 		endif
         foreach vertex in name of vertexes in network:
-            if vertex not in queue or visited:
+            if vertex not in queue or visited
                 queue.append({
                     'name': vertex, 'weight': connection['weight'] + 1
                 })
