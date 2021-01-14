@@ -1,0 +1,19 @@
+Aberdeen, USA, ABR
+Aberdeen, United Kingdom, ABZ
+Agaun, Papua New Guinea, AUP
+Agen, France, AGFA
+Agra, India, AGR
+Agri, Turkey, AJI
+Aguadilla, Puerto Rico, BQN
+Aguascalientes, Mexico, AGU
+Aguni, Japan, AGJ
+Ahmedabad, India, AMD
+Ahwaz, Iran, AWZ
+Ailuk Island, Marshall Islands, AIM
+Aioun El Atrouss, Mauritania, AEO
+Airok, Marshall Islands, AIC
+Aitutaki, Cook Islands, AIT
+Aizawl, India, AJL
+Ajaccio, France, AJA
+Akita, Japan, AXT
+Aksu, China, AKU
