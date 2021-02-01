@@ -1,0 +1,538 @@
+Release 14.7 - xst P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> 
+Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.41 secs
+ 
+--> 
+Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.41 secs
+ 
+--> 
+Reading design: bug_trap.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "bug_trap.prj"
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "bug_trap"
+Output Format                      : NGC
+Target Device                      : xc7z010-3-clg400
+
+---- Source Options
+Top Module Name                    : bug_trap
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Shift Register Extraction          : YES
+ROM Style                          : Auto
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Shift Register Minimum Size        : 2
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Auto
+Reduce Control Sets                : Auto
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 32
+Register Duplication               : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+---- Other Options
+Cores Search Directories           : {"Src"  }
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Parsing VHDL file "/mnt/hgfs/sys1/bug_trap_v1/Src/virtual_wires.vhd" into library work
+Parsing entity <virtual_wires>.
+Parsing architecture <virtual_wires_arch> of entity <virtual_wires>.
+Parsing VHDL file "/mnt/hgfs/sys1/bug_trap_v1/clock_divider.vhf" into library work
+Parsing entity <CB16CE_HXILINX_clock_divider>.
+Parsing architecture <Behavioral> of entity <cb16ce_hxilinx_clock_divider>.
+Parsing entity <clock_divider>.
+Parsing architecture <BEHAVIORAL> of entity <clock_divider>.
+Parsing VHDL file "/mnt/hgfs/sys1/bug_trap_v1/bug_trap_controller.vhf" into library work
+Parsing entity <bug_trap_controller>.
+Parsing architecture <BEHAVIORAL> of entity <bug_trap_controller>.
+Parsing VHDL file "/mnt/hgfs/sys1/bug_trap_v1/bug_trap.vhf" into library work
+Parsing entity <CB16CE_HXILINX_bug_trap>.
+Parsing architecture <Behavioral> of entity <cb16ce_hxilinx_bug_trap>.
+Parsing entity <bug_trap_controller_MUSER_bug_trap>.
+Parsing architecture <BEHAVIORAL> of entity <bug_trap_controller_muser_bug_trap>.
+Parsing entity <clock_divider_MUSER_bug_trap>.
+Parsing architecture <BEHAVIORAL> of entity <clock_divider_muser_bug_trap>.
+Parsing entity <bug_trap>.
+Parsing architecture <BEHAVIORAL> of entity <bug_trap>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating entity <bug_trap> (architecture <BEHAVIORAL>) from library <work>.
+
+Elaborating entity <clock_divider_MUSER_bug_trap> (architecture <BEHAVIORAL>) from library <work>.
+
+Elaborating entity <CB16CE_HXILINX_bug_trap> (architecture <Behavioral>) from library <work>.
+
+Elaborating entity <virtual_wires> (architecture <virtual_wires_arch>) from library <work>.
+WARNING:HDLCompiler:89 - "/mnt/hgfs/sys1/bug_trap_v1/Src/virtual_wires.vhd" Line 71: <picoblze_top_level> remains a black-box since it has no binding entity.
+
+Elaborating entity <bug_trap_controller_MUSER_bug_trap> (architecture <BEHAVIORAL>) from library <work>.
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <bug_trap>.
+    Related source file is "/mnt/hgfs/sys1/bug_trap_v1/bug_trap.vhf".
+    Summary:
+	no macro.
+Unit <bug_trap> synthesized.
+
+Synthesizing Unit <clock_divider_MUSER_bug_trap>.
+    Related source file is "/mnt/hgfs/sys1/bug_trap_v1/bug_trap.vhf".
+    Set property "HU_SET = XLXI_3_0" for instance <XLXI_3>.
+    Set property "HU_SET = XLXI_4_1" for instance <XLXI_4>.
+INFO:Xst:3210 - "/mnt/hgfs/sys1/bug_trap_v1/bug_trap.vhf" line 175: Output port <Q> of the instance <XLXI_3> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/mnt/hgfs/sys1/bug_trap_v1/bug_trap.vhf" line 175: Output port <TC> of the instance <XLXI_3> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/mnt/hgfs/sys1/bug_trap_v1/bug_trap.vhf" line 183: Output port <CEO> of the instance <XLXI_4> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/mnt/hgfs/sys1/bug_trap_v1/bug_trap.vhf" line 183: Output port <TC> of the instance <XLXI_4> is unconnected or connected to loadless signal.
+    Summary:
+	no macro.
+Unit <clock_divider_MUSER_bug_trap> synthesized.
+
+Synthesizing Unit <CB16CE_HXILINX_bug_trap>.
+    Related source file is "/mnt/hgfs/sys1/bug_trap_v1/bug_trap.vhf".
+    Found 16-bit register for signal <COUNT>.
+    Found 16-bit adder for signal <COUNT[15]_GND_9_o_add_0_OUT> created at line 53.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred  16 D-type flip-flop(s).
+Unit <CB16CE_HXILINX_bug_trap> synthesized.
+
+Synthesizing Unit <virtual_wires>.
+    Related source file is "/mnt/hgfs/sys1/bug_trap_v1/Src/virtual_wires.vhd".
+    Found 1-bit tristate buffer for signal <i2c_scl_io> created at line 123
+    Found 1-bit tristate buffer for signal <i2c_sda_io> created at line 124
+    Found 1-bit tristate buffer for signal <pio_C_io<0>> created at line 52
+    Found 1-bit tristate buffer for signal <pio_C_io<1>> created at line 52
+    Found 1-bit tristate buffer for signal <pio_C_io<2>> created at line 52
+    Found 1-bit tristate buffer for signal <pio_C_io<3>> created at line 52
+    Found 1-bit tristate buffer for signal <pio_C_io<4>> created at line 52
+    Found 1-bit tristate buffer for signal <pio_C_io<5>> created at line 52
+    Found 1-bit tristate buffer for signal <pio_C_io<6>> created at line 52
+    Found 1-bit tristate buffer for signal <pio_C_io<7>> created at line 52
+    Summary:
+	inferred  10 Tristate(s).
+Unit <virtual_wires> synthesized.
+
+Synthesizing Unit <bug_trap_controller_MUSER_bug_trap>.
+    Related source file is "/mnt/hgfs/sys1/bug_trap_v1/bug_trap.vhf".
+INFO:Xst:3210 - "/mnt/hgfs/sys1/bug_trap_v1/bug_trap.vhf" line 98: Output port <O> of the instance <XLXI_1> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/mnt/hgfs/sys1/bug_trap_v1/bug_trap.vhf" line 102: Output port <O> of the instance <XLXI_2> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/mnt/hgfs/sys1/bug_trap_v1/bug_trap.vhf" line 106: Output port <O> of the instance <XLXI_3> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/mnt/hgfs/sys1/bug_trap_v1/bug_trap.vhf" line 122: Output port <O> of the instance <XLXI_13> is unconnected or connected to loadless signal.
+    Summary:
+	no macro.
+Unit <bug_trap_controller_MUSER_bug_trap> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 2
+ 16-bit adder                                          : 2
+# Registers                                            : 2
+ 16-bit register                                       : 2
+# Tristates                                            : 10
+ 1-bit tristate buffer                                 : 10
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+Reading core <Src/picoblze_top_level.ngc>.
+Loading core <picoblze_top_level> for timing and area information for instance <SYSTEM>.
+
+Synthesizing (advanced) Unit <CB16CE_HXILINX_bug_trap>.
+The following registers are absorbed into counter <COUNT>: 1 register on signal <COUNT>.
+Unit <CB16CE_HXILINX_bug_trap> synthesized (advanced).
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Counters                                             : 2
+ 16-bit up counter                                     : 2
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <bug_trap_controller_MUSER_bug_trap> ...
+
+Optimizing unit <bug_trap> ...
+
+Optimizing unit <CB16CE_HXILINX_bug_trap> ...
+WARNING:Xst:2677 - Node <COUNT_7> of sequential type is unconnected in block <CLOCK/XLXI_4>.
+WARNING:Xst:2677 - Node <COUNT_8> of sequential type is unconnected in block <CLOCK/XLXI_4>.
+WARNING:Xst:2677 - Node <COUNT_9> of sequential type is unconnected in block <CLOCK/XLXI_4>.
+WARNING:Xst:2677 - Node <COUNT_10> of sequential type is unconnected in block <CLOCK/XLXI_4>.
+WARNING:Xst:2677 - Node <COUNT_11> of sequential type is unconnected in block <CLOCK/XLXI_4>.
+WARNING:Xst:2677 - Node <COUNT_12> of sequential type is unconnected in block <CLOCK/XLXI_4>.
+WARNING:Xst:2677 - Node <COUNT_13> of sequential type is unconnected in block <CLOCK/XLXI_4>.
+WARNING:Xst:2677 - Node <COUNT_14> of sequential type is unconnected in block <CLOCK/XLXI_4>.
+WARNING:Xst:2677 - Node <COUNT_15> of sequential type is unconnected in block <CLOCK/XLXI_4>.
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block bug_trap, actual ratio is 1.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 23
+ Flip-Flops                                            : 23
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Top Level Output File Name         : bug_trap.ngc
+
+Primitive and Black Box Usage:
+------------------------------
+# BELS                             : 543
+#      BUF                         : 8
+#      GND                         : 4
+#      INV                         : 33
+#      LUT1                        : 29
+#      LUT2                        : 15
+#      LUT3                        : 24
+#      LUT4                        : 18
+#      LUT5                        : 48
+#      LUT6                        : 155
+#      LUT6_2                      : 50
+#      MUXCY                       : 73
+#      MUXF7                       : 7
+#      VCC                         : 4
+#      XORCY                       : 75
+# FlipFlops/Latches                : 327
+#      FD                          : 49
+#      FDC                         : 59
+#      FDCE                        : 149
+#      FDE                         : 27
+#      FDP                         : 3
+#      FDPE                        : 5
+#      FDR                         : 21
+#      FDRE                        : 14
+# RAMS                             : 24
+#      RAM16X1S                    : 16
+#      RAM32M                      : 4
+#      RAM64M                      : 2
+#      RAMB36E1                    : 2
+# Clock Buffers                    : 2
+#      BUFG                        : 2
+# IO Buffers                       : 40
+#      IBUF                        : 8
+#      IBUFG                       : 1
+#      IOBUF                       : 10
+#      OBUF                        : 21
+# Others                           : 1
+#      MMCME2_ADV                  : 1
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 7z010clg400-3 
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:             327  out of  35200     0%  
+ Number of Slice LUTs:                  412  out of  17600     2%  
+    Number used as Logic:               372  out of  17600     2%  
+    Number used as Memory:               40  out of   6000     0%  
+       Number used as RAM:               40
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:    603
+   Number with an unused Flip Flop:     276  out of    603    45%  
+   Number with an unused LUT:           191  out of    603    31%  
+   Number of fully used LUT-FF pairs:   136  out of    603    22%  
+   Number of unique control sets:        39
+
+IO Utilization: 
+ Number of IOs:                          40
+ Number of bonded IOBs:                  39  out of    100    39%  
+
+Specific Feature Utilization:
+ Number of Block RAM/FIFO:                2  out of     60     3%  
+    Number using Block RAM only:          2
+ Number of BUFG/BUFGCTRLs:                2  out of     32     6%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+Timing Report
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+----------------------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)                  | Load  |
+-----------------------------------+----------------------------------------+-------+
+COMMS/SYSTEM/CLOCK_10MHZ/clkout0   | BUFG                                   | 351   |
+COMMS/SYSTEM/GND_BUS<1>            | NONE(COMMS/SYSTEM/CPU/rom/kcpsm6_rom_l)| 2     |
+-----------------------------------+----------------------------------------+-------+
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+
+Asynchronous Control Signals Information:
+----------------------------------------
+-----------------------------------------------+----------------------------------------+-------+
+Control Signal                                 | Buffer(FF name)                        | Load  |
+-----------------------------------------------+----------------------------------------+-------+
+COMMS/SYSTEM/GND_BUS<1>(COMMS/SYSTEM/XST_GND:G)| NONE(COMMS/SYSTEM/CPU/rom/kcpsm6_rom_h)| 8     |
+-----------------------------------------------+----------------------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -3
+
+   Minimum period: 4.906ns (Maximum Frequency: 203.840MHz)
+   Minimum input arrival time before clock: 3.077ns
+   Maximum output required time after clock: 1.175ns
+   Maximum combinational path delay: 0.385ns
+
+Timing Details:
+---------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'COMMS/SYSTEM/CLOCK_10MHZ/clkout0'
+  Clock period: 4.906ns (frequency: 203.840MHz)
+  Total number of paths / destination ports: 9086 / 866
+-------------------------------------------------------------------------
+Delay:               4.906ns (Levels of Logic = 12)
+  Source:            COMMS/SYSTEM/IO_PA/output_int_0 (FF)
+  Destination:       COMMS/SYSTEM/CPU/core_cpu/processor/zero_flag_flop (FF)
+  Source Clock:      COMMS/SYSTEM/CLOCK_10MHZ/clkout0 rising
+  Destination Clock: COMMS/SYSTEM/CLOCK_10MHZ/clkout0 rising
+
+  Data Path: COMMS/SYSTEM/IO_PA/output_int_0 to COMMS/SYSTEM/CPU/core_cpu/processor/zero_flag_flop
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDCE:C->Q             2   0.232   0.284  IO_PA/output_int_0 (pio_F_o<0>)
+     end scope: 'COMMS/SYSTEM:pio_F_o<0>'
+     BUF:I->O              1   0.314   0.279  CONTROLLER/XLXI_4 (CONTROLLER/XLXN_140)
+     INV:I->O              2   0.314   0.283  CONTROLLER/XLXI_65 (CONTROLLER/XLXN_314)
+     BUF:I->O              2   0.314   0.546  CONTROLLER/XLXI_9 (pio_F_i<0>)
+     begin scope: 'COMMS/SYSTEM:pio_F_i<0>'
+     LUT5:I0->O            1   0.043   0.456  CPU/core_data_mux/dout<0>5 (CPU/core_data_mux/dout<0>4)
+     LUT6:I2->O            1   0.043   0.456  CPU/core_data_mux/dout<0>6 (CPU/core_data_mux/dout<0>5)
+     LUT6:I2->O            1   0.043   0.456  CPU/core_data_mux/dout<0>12 (CPU/core_d_dat_i<0>)
+     LUT6:I2->O            3   0.043   0.289  CPU/core_cpu/processor/data_path_loop[0].alu_mux_lut (CPU/core_cpu/processor/alu_result<0>)
+     LUT6_2:I0->O5         0   0.120   0.000  CPU/core_cpu/processor/lower_zero_lut (CPU/core_cpu/processor/lower_zero)
+     MUXCY:DI->O           1   0.218   0.000  CPU/core_cpu/processor/lower_zero_muxcy (CPU/core_cpu/processor/carry_lower_zero)
+     MUXCY:CI->O           1   0.013   0.000  CPU/core_cpu/processor/middle_zero_muxcy (CPU/core_cpu/processor/carry_middle_zero)
+     MUXCY:CI->O           1   0.159   0.000  CPU/core_cpu/processor/upper_zero_muxcy (CPU/core_cpu/processor/zero_flag_value)
+     FDRE:D                   -0.001          CPU/core_cpu/processor/zero_flag_flop
+    ----------------------------------------
+    Total                      4.906ns (1.855ns logic, 3.051ns route)
+                                       (37.8% logic, 62.2% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'COMMS/SYSTEM/CLOCK_10MHZ/clkout0'
+  Total number of paths / destination ports: 118 / 75
+-------------------------------------------------------------------------
+Offset:              3.077ns (Levels of Logic = 11)
+  Source:            pio_A_i<0> (PAD)
+  Destination:       COMMS/SYSTEM/CPU/core_cpu/processor/zero_flag_flop (FF)
+  Destination Clock: COMMS/SYSTEM/CLOCK_10MHZ/clkout0 rising
+
+  Data Path: pio_A_i<0> to COMMS/SYSTEM/CPU/core_cpu/processor/zero_flag_flop
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             2   0.000   0.546  pio_A_i_0_IBUF (pio_A_i_0_IBUF)
+     begin scope: 'COMMS/SYSTEM:pio_A_i<0>'
+     LUT5:I0->O            1   0.043   0.343  CPU/core_data_mux/dout<0>8 (CPU/core_data_mux/dout<0>7)
+     LUT5:I3->O            1   0.043   0.289  CPU/core_data_mux/dout<0>9 (CPU/core_data_mux/dout<0>8)
+     LUT6:I5->O            1   0.043   0.428  CPU/core_data_mux/dout<0>11 (CPU/core_data_mux/dout<0>10)
+     LUT6:I3->O            1   0.043   0.456  CPU/core_data_mux/dout<0>12 (CPU/core_d_dat_i<0>)
+     LUT6:I2->O            3   0.043   0.289  CPU/core_cpu/processor/data_path_loop[0].alu_mux_lut (CPU/core_cpu/processor/alu_result<0>)
+     LUT6_2:I0->O5         0   0.120   0.000  CPU/core_cpu/processor/lower_zero_lut (CPU/core_cpu/processor/lower_zero)
+     MUXCY:DI->O           1   0.218   0.000  CPU/core_cpu/processor/lower_zero_muxcy (CPU/core_cpu/processor/carry_lower_zero)
+     MUXCY:CI->O           1   0.013   0.000  CPU/core_cpu/processor/middle_zero_muxcy (CPU/core_cpu/processor/carry_middle_zero)
+     MUXCY:CI->O           1   0.159   0.000  CPU/core_cpu/processor/upper_zero_muxcy (CPU/core_cpu/processor/zero_flag_value)
+     FDRE:D                   -0.001          CPU/core_cpu/processor/zero_flag_flop
+    ----------------------------------------
+    Total                      3.077ns (0.724ns logic, 2.353ns route)
+                                       (23.5% logic, 76.5% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'COMMS/SYSTEM/CLOCK_10MHZ/clkout0'
+  Total number of paths / destination ports: 49 / 30
+-------------------------------------------------------------------------
+Offset:              1.175ns (Levels of Logic = 3)
+  Source:            COMMS/SYSTEM/I2C/I2C/state_FSM_FFd2 (FF)
+  Destination:       LED_o<1> (PAD)
+  Source Clock:      COMMS/SYSTEM/CLOCK_10MHZ/clkout0 rising
+
+  Data Path: COMMS/SYSTEM/I2C/I2C/state_FSM_FFd2 to LED_o<1>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q             17   0.232   0.617  I2C/I2C/state_FSM_FFd2 (I2C/I2C/state_FSM_FFd2)
+     LUT6:I1->O            2   0.043   0.283  I2C/I2C/Mmux_sda_ena_n11 (i2c_sda_en_o)
+     end scope: 'COMMS/SYSTEM:i2c_sda_en_o'
+     IOBUF:T->IO               0.000          i2c_sda_io_IOBUF (i2c_sda_io)
+    ----------------------------------------
+    Total                      1.175ns (0.275ns logic, 0.900ns route)
+                                       (23.4% logic, 76.6% route)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 2 / 2
+-------------------------------------------------------------------------
+Delay:               0.385ns (Levels of Logic = 2)
+  Source:            rst_i (PAD)
+  Destination:       COMMS/SYSTEM/CLOCK_10MHZ/mmcm_adv_inst:RST (PAD)
+
+  Data Path: rst_i to COMMS/SYSTEM/CLOCK_10MHZ/mmcm_adv_inst:RST
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            28   0.000   0.385  rst_i_IBUF (rst_i_IBUF)
+     begin scope: 'COMMS/SYSTEM:rst_i'
+    MMCME2_ADV:RST             0.000          CLOCK_10MHZ/mmcm_adv_inst
+    ----------------------------------------
+    Total                      0.385ns (0.000ns logic, 0.385ns route)
+                                       (0.0% logic, 100.0% route)
+
+=========================================================================
+
+Cross Clock Domains Report:
+--------------------------
+
+Clock to Setup on destination clock COMMS/SYSTEM/CLOCK_10MHZ/clkout0
+--------------------------------+---------+---------+---------+---------+
+                                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock                    |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+--------------------------------+---------+---------+---------+---------+
+COMMS/SYSTEM/CLOCK_10MHZ/clkout0|    4.906|         |         |         |
+--------------------------------+---------+---------+---------+---------+
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 114.00 secs
+Total CPU time to Xst completion: 85.51 secs
+ 
+--> 
+
+
+Total memory usage is 626788 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   10 (   0 filtered)
+Number of infos    :    9 (   0 filtered)
+

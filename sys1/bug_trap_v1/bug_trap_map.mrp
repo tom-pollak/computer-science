@@ -1,0 +1,37 @@
+Release 14.7 Map P.20131013 (lin64)
+Xilinx Mapping Report File for Design 'bug_trap'
+
+Design Information
+------------------
+Command Line   : map -intstyle ise -p xc7z010-clg400-3 -w -logic_opt off -ol
+high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off
+-power off -o bug_trap_map.ncd bug_trap.ngd bug_trap.pcf 
+Target Device  : xc7z010
+Target Package : clg400
+Target Speed   : -3
+Mapper Version : zynq -- $Revision: 1.55 $
+Mapped Date    : Thu Jan 28 14:17:43 2021
+
+Design Summary
+--------------
+Number of errors   :   1
+Number of warnings :   0
+
+Section 1 - Errors
+------------------
+ERROR:Security:9c - No 'ISE' nor 'WebPack' feature version 2013.10 was available
+for part 'xc7z010'.
+ERROR:Map:258 - A problem was encountered attempting to get the license for this
+   architecture. 
+
+Section 2 - Warnings
+--------------------
+
+Section 3 - Informational
+-------------------------
+INFO:Security:54 - 'xc7z010' is a WebPack part.
+INFO:Security:7 - A feature for ISE was found but is for the wrong hostid.
+INFO:Security:61 - The XILINXD_LICENSE_FILE environment variable is not set.
+INFO:Security:63 - The LM_LICENSE_FILE environment variable is not set.
+INFO:Security:68 - For more information or for assistance in obtaining 
+INFO:Security:68a - user is ise, on host localhost.localdomain.

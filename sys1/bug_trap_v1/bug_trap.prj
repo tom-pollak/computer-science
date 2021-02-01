@@ -1,0 +1,4 @@
+vhdl work "Src/virtual_wires.vhd"
+vhdl work "clock_divider.vhf"
+vhdl work "bug_trap_controller.vhf"
+vhdl work "bug_trap.vhf"

@@ -1,0 +1,7 @@
+MODULE bug_trap
+	SUBMODULE clock_divider
+		INSTANCE CLOCK
+	SUBMODULE virtual_wires
+		INSTANCE COMMS
+	SUBMODULE bug_trap_controller
+		INSTANCE CONTROLLER

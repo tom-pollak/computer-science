@@ -1,0 +1,3 @@
+xst -intstyle ise -ifn "/mnt/hgfs/sys1/bug_trap_v1/bug_trap.xst" -ofn "/mnt/hgfs/sys1/bug_trap_v1/bug_trap.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd Src -nt timestamp -uc Src/FPGA.ucf -p xc7z010-clg400-3 bug_trap.ngc bug_trap.ngd  
+map -intstyle ise -p xc7z010-clg400-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o bug_trap_map.ncd bug_trap.ngd bug_trap.pcf 

@@ -1,0 +1,3 @@
+sch2hdl,-sympath,/mnt/hgfs/sys1/bug_trap_v1/Src,-intstyle,ise,-family,zynq,-flat,-suppress,-vhdl,/mnt/hgfs/sys1/bug_trap_v1/bug_trap.vhf,-w,/mnt/hgfs/sys1/bug_trap_v1/Src/bug_trap.sch
+sch2hdl,-sympath,/mnt/hgfs/sys1/bug_trap_v1/Src,-intstyle,ise,-family,zynq,-flat,-suppress,-vhdl,/mnt/hgfs/sys1/bug_trap_v1/bug_trap_controller.vhf,-w,/mnt/hgfs/sys1/bug_trap_v1/Src/bug_trap_controller.sch
+sch2hdl,-sympath,/mnt/hgfs/sys1/bug_trap_v1/Src,-intstyle,ise,-family,zynq,-flat,-suppress,-vhdl,/mnt/hgfs/sys1/bug_trap_v1/clock_divider.vhf,-w,/mnt/hgfs/sys1/bug_trap_v1/Src/clock_divider.sch

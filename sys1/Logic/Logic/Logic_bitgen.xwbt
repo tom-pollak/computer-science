@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=/mnt/hdd/Documents/Lectures/SD1/Labs/LAB_01_signal_generator/Logic_Gates/Logic.ncd
+OUTFILE=/mnt/hdd/Documents/Lectures/SD1/Labs/LAB_01_signal_generator/Logic_Gates/Logic.bit
+FAMILY=Zynq
+PART=xc7z010-3clg400
+WORKINGDIR=/mnt/hdd/Documents/Lectures/SD1/Labs/LAB_01_signal_generator/Logic_Gates
+LICENSE=ISE
+USER_INFO=174131719_174131720_210639042_920

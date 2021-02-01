@@ -1,0 +1,8 @@
+INTSTYLE=impact
+INFILE=/mnt/hdd/Documents/Lectures/SD1/Labs/LAB_01_signal_generator/Logic_Gates/impact.xsl
+OUTFILE=/mnt/hdd/Documents/Lectures/SD1/Labs/LAB_01_signal_generator/Logic_Gates/impact.xsl
+FAMILY=None
+PART=None
+WORKINGDIR=/mnt/hdd/Documents/Lectures/SD1/Labs/LAB_01_signal_generator/Logic_Gates
+LICENSE=iMPACT
+USER_INFO=iMPACT

@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "secureip" -o "/home/mike/Documents/SYS1/Slides/LEC_02/VHDL/Logic/Logic_Logic_sch_tb_isim_beh.exe" -prj "/home/mike/Documents/SYS1/Slides/LEC_02/VHDL/Logic/Logic_Logic_sch_tb_beh.prj" "work.Logic_Logic_sch_tb" 

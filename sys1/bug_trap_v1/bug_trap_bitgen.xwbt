@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=/home/mike/Documents/SYS1/Labs/LAB_02_logic_circuit/VHDL/bug_trap_v1/bug_trap.ncd
+OUTFILE=/home/mike/Documents/SYS1/Labs/LAB_02_logic_circuit/VHDL/bug_trap_v1/bug_trap.bit
+FAMILY=Zynq
+PART=xc7z010-3clg400
+WORKINGDIR=/home/mike/Documents/SYS1/Labs/LAB_02_logic_circuit/VHDL/bug_trap_v1
+LICENSE=ISE
+USER_INFO=174131719_174131720_210639042_920
