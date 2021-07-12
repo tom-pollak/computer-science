@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+
+
 int addmult(int x, int y, int z);
 
 int addmult(int x, int y, int z) {
