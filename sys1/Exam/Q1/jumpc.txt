@@ -1,0 +1,33 @@
+jumpc
+----------
+Works similar to a greater than operaration, to test A > B, perform B - A and if A > B the carry flag will be set.
+
+
+fetch decode execute cycle
+---
+fetch: 
+The computer fetches the instruction address from the program counter.
+The computer then loads the instruction into memory in the intstruction register
+PC is updated to the address of the next instruction (2 bytes ahead)
+
+decode:
+The program reads the first 4 bits of the instruction to determine its opcode. 
+From the opcode 1011 it then splits the remaining 12 bits into an operand that dictates the jump address
+
+execute:
+CPU then determines if the carry bit in the status register is set 
+if so, the PC is updated to the address of the operand
+
+rtl
+---
+if carry is set
+pc <- ir(7:0)
+end
+
+decoder.vhd
+---
+Added jumpc as a port in the decoder
+jumpc : out STD_LOGIC;
+
+Internal logic
+jump <= ... or (jumpc and carry)
