@@ -10,10 +10,10 @@ int main (int argc, char *argv[])
     FILE *f, *b, b_r;
 
     f = fopen("coords.txt", "rt");
-    b = fopen("coords", "wb");
     for (int i = 0; i < 5; i++) {
         struct coord c;
         fscanf(f, "%f %f", &c.x, &c.y);
+        b = fopen("coords", "wb");
         fwrite(&c, 1, 1, b);
         fclose(b);
         b_r = *fopen("coords", "rb");
