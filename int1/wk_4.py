@@ -21,7 +21,7 @@ class Castle:
     def generate_heuristics(self, heuristic):
         for i, dist in enumerate(heuristic[self]):
             castle = list(heuristic)[i]
-            self.straight_line_dist[castle] = dist
+            self.straight_line_dist[castle] = dist / 5
 
     def bfs(self, goal, queue=None, visited=None, dist_from_home=0):
         print(self.name, dist_from_home)
@@ -39,20 +39,26 @@ class Castle:
             for connected_castle, arc in zip(self.castles, self.castles.values()):
                 if connected_castle in visited:
                     continue
-                time_to_walk = (dist_from_home + arc) / 5 + (
-                    self.height - connected_castle.height
-                ) / 600
+
+                rel_height = connected_castle.height - self.height
+                if rel_height < 0:
+                    rel_height = 0
+                time_to_walk = (dist_from_home + arc) / 5 + rel_height / 600
 
                 try:
                     c_index = [c[0] for c in queue].index(connected_castle)
                 except ValueError:
                     queue.append([connected_castle, time_to_walk])
                     continue
-                queue[c_index][1] = min(queue[c_index][1], time_to_walk)
+                # queue[c_index][1] = min(queue[c_index][1], time_to_walk)
+                queue[c_index][1] = min(
+                    queue[c_index][1] + self.straight_line_dist[connected_castle],
+                    time_to_walk + self.straight_line_dist[self],
+                )
             if len(queue) == 0:
                 return best_dist
 
-            queue.sort(key=lambda x: x[1])
+            queue.sort(key=lambda x: x[1] + x[0] + self.straight_line_dist)
             next_castle, arc = queue.pop(0)
             dist = next_castle.bfs(goal, queue, visited, arc)
 
