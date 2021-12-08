@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="sys1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/sys1/bug_trap_v1(1).zip!/" />
+      <root url="jar://$PROJECT_DIR$/sys1/virtualBugTrap.zip!/" />
+      <root url="jar://$PROJECT_DIR$/sys1/INV.zip!/" />
+      <root url="jar://$PROJECT_DIR$/sys1/NOISE.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

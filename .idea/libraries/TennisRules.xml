@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="TennisRules">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/dat1/DAT1-assessment/TennisRules.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

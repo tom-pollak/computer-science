@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/sof2/SOF2PracticalExam/SOF2PracticalExam.iml" filepath="$PROJECT_DIR$/sof2/SOF2PracticalExam/SOF2PracticalExam.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sof2/SOF2SpringFormative/SOF2SpringFormative.iml" filepath="$PROJECT_DIR$/sof2/SOF2SpringFormative/SOF2SpringFormative.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sof2/Tally/Tally.iml" filepath="$PROJECT_DIR$/sof2/Tally/Tally.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sof2/VectorTests/VectorTests.iml" filepath="$PROJECT_DIR$/sof2/VectorTests/VectorTests.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/computer-science.iml" filepath="$PROJECT_DIR$/.idea/computer-science.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sof2/mock/mock.iml" filepath="$PROJECT_DIR$/sof2/mock/mock.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sof2/sof2.iml" filepath="$PROJECT_DIR$/sof2/sof2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sof2/summerweek2/summerweek2.iml" filepath="$PROJECT_DIR$/sof2/summerweek2/summerweek2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sof2/week10/week10.iml" filepath="$PROJECT_DIR$/sof2/week10/week10.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sof2/week3/week3.iml" filepath="$PROJECT_DIR$/sof2/week3/week3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sof2/week5/week5.iml" filepath="$PROJECT_DIR$/sof2/week5/week5.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sof2/week9/week9.iml" filepath="$PROJECT_DIR$/sof2/week9/week9.iml" />
+    </modules>
+  </component>
+</project>

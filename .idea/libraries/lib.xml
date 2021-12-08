@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="lib">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/sof2/SOF2PracticalExam/ClosedExamination/lib/hamcrest-core-1.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/sof2/SOF2PracticalExam/ClosedExamination/lib/junit-4.13.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

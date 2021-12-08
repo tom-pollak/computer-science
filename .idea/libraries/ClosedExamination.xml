@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="ClosedExamination">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/sof1/assessments/ClosedExamination.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
