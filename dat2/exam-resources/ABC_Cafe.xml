@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ABC_Cafe>
+    <Food>
+        <Menu type="BFAST">
+            <BF origin="English">
+                <price>£10</price>
+                <preperation_time>10 mins</preperation_time>
+            </BF>
+            <BF origin="Hot English">
+                <price>£20</price>
+                <preparation_time>20 mins</preparation_time>
+                <free_kids max="1">age under 11</free_kids>
+            </BF>
+        </Menu>
+        <extra_1>
+            smoked salmon
+            <served_with>sourdough bread</served_with>
+        </extra_1>
+        <extra_2>crab cake</extra_2>
+    </Food>
+</ABC_Cafe>
