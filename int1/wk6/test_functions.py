@@ -1,5 +1,5 @@
-from random import random
 import math
+from random import random
 
 
 def f1(x):
@@ -62,3 +62,16 @@ def new_move_in_range(dims, min, max):
     for d in range(dims):
         x.append(min + (random() * (max - min)))
     return tuple(x)
+
+
+def gradient_descent(f_ddx, x0, eta, max_iter):
+    x = x0
+    for i in range(max_iter):
+        x1 = x - eta * f_ddx(x)
+        if x == x1:
+            break
+        x = x1
+    return x
+
+
+gradient_descent(f1_ddx, 8, 0.05, 10000)
