@@ -50,13 +50,11 @@ For each of the following expressions
 10. `let cube n = n^3 in cube 2 + cube 3`
 -}
 
-
 a :: Int
 a = 3 + 8
 
-
 b :: Int
-b = do let sqr n = n^2 in sqr 3 + sqr 4
+b = do let sqr n = n ^ 2 in sqr 3 + sqr 4
 
 {-
 
@@ -79,8 +77,6 @@ For each of the expressions above:
 
 -}
 
-
-
 {-
 
 ## Q3: Detecting errors
@@ -95,7 +91,6 @@ including:
 
 All except dynamic semantic errors are detectable at compile time by
 automated analysis.
-
 
 Each of the following expressions contains at least one error.  For
 each:
@@ -123,7 +118,6 @@ be controversial?)
 
 errorA :: Int -> Char
 errorA x = if x == 0 then 'a' else 'b'
-
 
 {-
 
@@ -197,8 +191,8 @@ greet :: String -> String
 greet name = "Hello " ++ name ++ "!"
 
 greetTest :: Bool
-greetTest
-  = greet "Kofi" == "Hello Kofi!"
+greetTest =
+  greet "Kofi" == "Hello Kofi!"
     && greet "Jeremy" == "Hello Jeremy!"
     && greet "" == "Hello !"
 
@@ -215,13 +209,14 @@ Example: `show 42 == "42"`.
 
 cakeBill :: Int -> Int -> String
 cakeBill quantity price = "The cost of " ++ show quantity ++ " cakes at " ++ show price ++ "p each is " ++ show totalPrice ++ "p."
-  where totalPrice = quantity * price
+  where
+    totalPrice = quantity * price
 
 cakeBillTest :: Bool
 cakeBillTest =
   cakeBill 0 3 == "The cost of 0 cakes at 3p each is 0p."
-  && cakeBill 1 3 == "The cost of 1 cakes at 3p each is 3p."
-  && cakeBill 2 3 == "The cost of 2 cakes at 3p each is 6p."
+    && cakeBill 1 3 == "The cost of 1 cakes at 3p each is 3p."
+    && cakeBill 2 3 == "The cost of 2 cakes at 3p each is 6p."
 
 {-
 The function `cakeBill` does not get the case of 1 cake quite right.
@@ -230,15 +225,17 @@ Give a function `cakeBill'` that uses correct English grammar.
 
 cakeBill' :: Int -> Int -> String
 cakeBill' quantity price
-        | quantity == 1 = "The cost of " ++ show quantity ++ " cake at " ++ show price ++ "p each is " ++ show totalPrice ++ "p."
-        | otherwise = "The cost of " ++ show quantity ++ " cakes at " ++ show price ++ "p each is " ++ show totalPrice ++ "p."
-        where totalPrice = quantity * price
+  | quantity == 1 = "The cost of " ++ show quantity ++ " cake at " ++ show price ++ "p each is " ++ show totalPrice ++ "p."
+  | otherwise = "The cost of " ++ show quantity ++ " cakes at " ++ show price ++ "p each is " ++ show totalPrice ++ "p."
+  where
+    totalPrice = quantity * price
 
 cakeBill'Test :: Bool
 cakeBill'Test =
   cakeBill' 0 3 == "The cost of 0 cakes at 3p each is 0p."
-  && cakeBill' 1 3 == "The cost of 1 cake at 3p each is 3p."
-  && cakeBill' 2 3 == "The cost of 2 cakes at 3p each is 6p."
+    && cakeBill' 1 3 == "The cost of 1 cake at 3p each is 3p."
+    && cakeBill' 2 3
+      == "The cost of 2 cakes at 3p each is 6p."
 
 {-
 ### Q5.3 (SOF1)
@@ -253,17 +250,24 @@ bananas is ordered.  Assume that orders must be whole numbers of
 kilos, and cost is expressed in in pennies.
 -}
 
-bananas :: Int -> Int
-bananas order | order < min_order = undefined
-        | undefined         = undefined
-              | otherwise         = undefined
-              where
-               min_order = undefined
+bananas :: Int -> Float
+bananas order =
+  let orderPrice = fromIntegral (order * pricePerKilo) + pp
+   in case () of
+        _
+          | order < minOrder -> error "Order must be minimum"
+          | orderPrice < 50 -> orderPrice
+          | otherwise -> orderPrice - ppReduction
+  where
+    minOrder = 2
+    pricePerKilo = 3
+    pp = 4.99 :: Float
+    ppReduction = 1.5
 
 bananasTest :: Bool
 bananasTest =
   bananas 2 == 1099
-  && bananas 20 == 6349
+    && bananas 20 == 6349
 
 {-
 ### Q5.4
@@ -298,10 +302,13 @@ The implication operator on Booleans is not defined in `Prelude`.
 Define it using other operators defined in `Prelude`.  Can you solve
 the problem without explicit parameters?
 -}
-implies :: Bool -> Bool -> Bool -- explicit parameters
-implies = undefined
-implies_ :: Bool -> Bool -> Bool -- implicit parameters
-implies_ = undefined
+implies_ :: Bool -> Bool -> Bool -- explicit parameters
+implies_ x y
+  | not x && y = False
+  | otherwise = True
+
+implies :: Bool -> Bool -> Bool -- implicit parameters
+implies x y = x <= y
 
 {-
 It is easy to define Boolean operators using truth tables.
@@ -326,10 +333,9 @@ Define the implication operator twice more, once using a full truth
 table and once using "don't care" patterns.
 -}
 
-implies', implies'' :: Bool -> Bool -> Bool
-implies' a b = undefined -- full table
-
-implies'' a b  = undefined -- using "don't care" patterns
+implies' :: Bool -> Bool -> Bool
+implies' True False = False
+implies' _ _ = True
 
 {-
 ### Q5.6
@@ -354,7 +360,10 @@ input item.
 -}
 
 eats :: Item -> [Item]
-eats = undefined
+eats item
+  | item == Dog = [Chicken]
+  | item == Chicken = [Grain]
+  | otherwise = []
 
 {-
 Create a function `danger` that, given two `Item`s, reports if either
@@ -362,8 +371,13 @@ will eat the other.  You should use the function `eats` you have just
 defined.  You may find the `Prelude` function `elem` useful.
 -}
 
+find _ [] = False
+find n (x : xs)
+  | x == n = True
+  | otherwise = find x xs
+
 danger :: Item -> Item -> Bool
-danger = undefined
+danger x y = find x (eats y) || find y (eats x)
 
 {-
 ## Q6: Recursive functions
@@ -380,8 +394,8 @@ Do this _without_ using any functions from `Prelude`.
 -}
 
 incList :: [Int] -> [Int]
-incList [] = undefined
-incList (n:ns) = undefined
+incList [] = []
+incList (n : ns) = [n + 1] ++ incList ns
 
 {-
 Haskell has lots of functions in its libraries that capture particular
@@ -392,8 +406,10 @@ map f [a, b, c] == [f a, f b, f c]
 ```
 Define `incList'` using `map`.
 -}
+inc x = x + 1
+
 incList' :: [Int] -> [Int]
-incList' = undefined
+incList' l = map inc l
 
 {-
 ### Q6.2
@@ -409,7 +425,10 @@ As an example, rewrite `greetTest` as `greetTest'`.
 the form `(input, expectedOutput)`.  The function can conveniently be
 defined in a `where` clause.
 -}
-greetTest' = undefined
+greetTest' :: [Bool]
+greetTest' =
+  let testData = [("a", "Hello a!"), ("b", "Hello b!")]
+   in map (\(x, y) -> greet x == y) testData
 
 {-
 ### Q6.3
@@ -436,7 +455,7 @@ the type in your file.
 -}
 
 pos :: Eq a => a -> [a] -> Int
-pos = undefined
+pos _ [] = error "Item not in list"
 
 {-
 ### Q6.4
@@ -448,6 +467,7 @@ defined for the type of elements under consideration.
 -}
 insert :: Ord a => a -> [a] -> [a]
 insert = undefined
+
 {-
 Another important pattern of recursion is right-folding.
 
@@ -534,8 +554,6 @@ is actually `foldl'` rather than `foldl`, which does not matter for
 this exercise).]
 -}
 
-
-
 {-
 A left fold can be much less efficient than a right fold.  When
 evaluated on an infinite list it never gives any result, whereas a
@@ -563,6 +581,7 @@ lenLF = foldl undefined undefined
 We can define a new type to represent vectors of Integers:
 -}
 type Vector = [Int]
+
 {-
 Define scalar multiplication of vectors.  We will use the infix symbol
 `(/*/)` to represent this operator.
@@ -598,11 +617,13 @@ We can define a unit vector for `(/+/)` by
 -}
 zeroV :: Vector
 zeroV = repeat 0
+
 {-
 Define a function that sums a list of vectors.
 -}
 sumV :: [Vector] -> Vector
 sumV = undefined
+
 {-
 The SOF1 exercise asks you to implement equality on vectors.  You do
 not need to implement equality, or inequality, on the Haskell type
@@ -613,6 +634,7 @@ Define your own version of `zipWith` using explicit recursion.
 -}
 zipWith' :: (a -> b -> c) -> [a] -> [b] -> [c]
 zipWith' = undefined
+
 {-
 ### Q6.14 (SOF1)
 Implement a function `merge :: Ord a => [a] -> [a] -> [a]`, that
@@ -621,6 +643,7 @@ merges the two lists into an ordered list.
 -}
 merge :: Ord a => [a] -> [a] -> [a]
 merge = undefined
+
 {-
 Define a test `isOrdered :: Ord a => [a] -> Bool` that returns `True`
 exactly when the parameter is ordered.
@@ -634,6 +657,7 @@ and = foldr (&&) True
 -}
 isOrdered :: Ord a => [a] -> Bool
 isOrdered = undefined
+
 {-
 ### Q6.15 (SOF1)
 Write a function `something_ish :: Eq a => [a] -> [a] -> Bool` and
@@ -647,12 +671,14 @@ letters of "elf" appear in `source` at least once, in any order.
 
 **Hint** Use the predefined right-fold/map combinators
 `all :: (a->Bool) -> [a] -> Bool)` and
-`elem :: Eq a => a -> [a] -> Bool` 
+`elem :: Eq a => a -> [a] -> Bool`
 -}
-something_ish :: Eq a => [a] -> [a] -> Bool
+somethingIsh :: Eq a => [a] -> [a] -> Bool
 elfish :: String -> Bool
-something_ish = undefined
+somethingIsh = undefined
+
 elfish = undefined
+
 {-
 ## References
 
