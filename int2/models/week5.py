@@ -3,7 +3,7 @@ import random
 import numpy as np
 import matplotlib.pyplot as plt
 from typing import Type
-from models.week_4 import linear_classify, perceptron, e_n, loss, plot_separator
+from models.week_4 import linear_classify, perceptron_with_offset, e_n, loss, plot_separator
 
 
 def test_normalise():
@@ -53,7 +53,7 @@ def signed_dist(x: np.ndarray, theta: np.ndarray, theta_0) -> float:
 if __name__ == "__main__":
     data1 = np.array([[1, 1, 2, 2], [-1, 1, -1, 1]])
     data1_labels = np.array([[-1, 1, 1, -1]])
-    theta, theta_0 = perceptron(data1, data1_labels)
+    theta, theta_0 = perceptron_with_offset(data1, data1_labels)
     result = e_n(linear_classify, data1, data1_labels, loss, theta, theta_0)
     fig, ax = plt.subplots()  # create an empty plot and retrieve the 'ax' handle
     ax.scatter(data1[0, :], data1[1, :], c=colors, marker="o")

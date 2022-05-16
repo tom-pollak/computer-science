@@ -79,7 +79,7 @@ def random_linear_classifier(data, labels, params=None, hook=None):
     return thetas[j_best], theta_0s[j_best]
 
 
-def perceptron(data, labels, params=None, hook=None):
+def perceptron_with_offset(data, labels, params=None, hook=None):
     """The Perceptron learning algorithm.
 
     :param data: A d x n matrix where d is the number of data dimensions and n the number of examples.
@@ -101,8 +101,6 @@ def perceptron(data, labels, params=None, hook=None):
         for i in range(n):
             # TODO Best way to get single column of numpy array
             y_i = labels[:, i : i + 1] # Get column
-            print(y_i)
-            print(y_i.shape)
             X_i = data[:, i : i + 1]
             if y_i * (theta.T @ X_i + theta_0) <= 0:
                 theta += y_i * X_i
@@ -192,7 +190,7 @@ def start():
 
     # Run the RLC or Perceptron: (uncomment the following lines to call the learning algorithms)
     # theta, theta_0 = random_linear_classifier(X, y, {"k": 10}, hook=hook)
-    theta, theta_0 = perceptron(X, y, {"T": 10}, hook=hook)
+    theta, theta_0 = perceptron_with_offset(X, y, {"T": 10}, hook=hook)
     # Plot the returned separator:
     plot_separator(ax, theta, theta_0)
 
@@ -216,5 +214,5 @@ def start():
 
     print("Finished.")
 
-if __name__ == "__main__":
-    start()
+# if __name__ == "__main__":
+#     start()
