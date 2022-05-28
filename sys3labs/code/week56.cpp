@@ -112,9 +112,9 @@ int main(int argc, char *argv[])
     if (1) // single issue
     {
         Pipe.IssueWidth = 1;
-        Pipe.ReadPorts = 3;
+        Pipe.ReadPorts = 1;
         Pipe.WritePorts = 1;
-        Pipe.IALUCount = 3;
+        Pipe.IALUCount = 1;
         Pipe.FPALUCount = 1;
         Pipe.SHALUCount = 1;
         Pipe.CacheMode = 0;

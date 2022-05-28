@@ -19,7 +19,6 @@ def perceptron(data, labels, params=None, hook=None):
 	(d, n) = data.shape
 
 	theta = np.zeros((d, 1))
-
 	for _ in range(T):
 		found_separability = True
 		for i in range(n):
@@ -44,8 +43,9 @@ def transform_polynomial_basis(x, order):
 	:param order: The order of the polynomial basis to use.
 	:return:
 	"""
-
-	x = np.concatenate((x, x[:, :-1] * x[:, 1:]), axis=1)
+	for i in range(order):
+		x = np.insert(x, 1, 0, axis=0)
+		x = np.power(x, i + 1)
 
 
 def start():
