@@ -10,52 +10,63 @@ class LsfrMachine:
     Secure provided you don't mess with the internal state
     """
 
-    def __init__(self, key: list[int]):
-        self.__key = key
+    def __init__(self, initial_key: int, key_length: int):
+        self.__key: int = initial_key
+        self.max_val: int = 2**key_length - 1
 
-    def __xor_shift_bit(self, check_bit: int) -> int:
-        end_bit = self.__key.pop()
-        new_bit = check_bit ^ end_bit
-        self.__key.insert(0, new_bit)
+    def xor_shift_bit(self, comp_bit: int) -> int:
+        assert comp_bit in [0, 1], f"comp bit: {comp_bit} must be 0 or 1"
+        key_list = [c for c in self.num2binstr(self.__key)]
+
+        end_bit = int(key_list.pop())
+        new_bit = comp_bit ^ end_bit
+        key_list.insert(0, str(new_bit))
+
+        self.__key = int("".join(key_list), 2)
+        assert self.__key <= self.max_val
         return new_bit
 
-    def encrypt_ciphertext(self, message: list[int]) -> list[int]:
+    def encrypt_message(self, message: int) -> int:
         """
         Enc_K(M) -> C
         """
-        assert len(message) == len(
-            self.__key
-        ), f"Length of message must be {len(self.__key)}"
-        ciphertext = list(map(lambda x: x[0] ^ x[1], zip(message, self.__key)))
+        assert message <= self.max_val, f"Message must be less than {self.max_val}"
+        ciphertext = message ^ self.__key
+
         # It should only shift the bit *once* per message
-        self.__xor_shift_bit(message[-1])
+        self.xor_shift_bit(int(self.num2binstr(message)[-1]))
         return ciphertext
 
-    def __call__(self, m: list[int]) -> list[int]:
-        return self.encrypt_ciphertext(m)
+    @staticmethod
+    def num2binstr(n: int) -> str:
+        return "{0:b}".format(n)
+
+    def __call__(self, m: int) -> int:
+        return self.encrypt_message(m)
 
 
 def test_lfsr_machine():
     import random
 
     cipher_length = 15
-    random_message = lambda: [random.randint(0, 1) for i in range(cipher_length)]
-    lsfr_machine = LsfrMachine(random_message())
-    cipher_random_message = lambda: lsfr_machine(random_message())
+    max_val = 2**cipher_length - 1
+    lsfr_machine = LsfrMachine(random.randint(0, max_val), cipher_length)
+    cipher_random_message = lambda: lsfr_machine(random.randint(0, max_val))
     prev_cipher = cipher_random_message()
     for i in range(100):
         cipher = cipher_random_message()
-        assert len(cipher) == cipher_length
+        assert cipher <= max_val
         assert prev_cipher != cipher, "Ciphers should be different (not guarateed!)"
-        prev_cipher = cipher[:]
+        prev_cipher = cipher
+
 
 def test_lfsr_zero():
     cipher_length = 15
-    zero_message = [0 for _ in range(cipher_length)]
-    lsfr_machine = LsfrMachine(zero_message)
+    lsfr_machine = LsfrMachine(0, cipher_length)
     for _ in range(10):
-        c = lsfr_machine(zero_message)
-        assert c == zero_message
+        c = lsfr_machine(0)
+        assert c == 0
+
 
 def test_simulate_input():
     cipher_length = 15

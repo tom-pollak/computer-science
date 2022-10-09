@@ -7,16 +7,28 @@ except ImportError:
     from lfsr_machine import LsfrMachine
 
 
-def decrypt_key(lsfr_machine: LsfrMachine, message: list[int]) -> list[int]:
+def decrypt_key(lsfr_machine: LsfrMachine, message: int) -> int:
     ciphertext = lsfr_machine(message)
-    key = list(map(lambda x: x[0] ^ x[1], zip(message, ciphertext)))
+    key = message ^ ciphertext
     return key
 
 
 def test_decrypt():
-    secret_key = [random.randint(0, 1) for i in range(15)]
-    print(f"Initial key: {secret_key}")
-    lsfr_machine = LsfrMachine(secret_key)
-    reconstructed_key = decrypt_key(lsfr_machine, [random.randint(0, 1) for i in range(15)])
-    print(f"found key:   {reconstructed_key}")
+    cipher_length = 15
+    random_message = lambda: random.randint(0, 2**cipher_length - 1)
+
+    secret_key = random_message()
+    print(f"Secret key: {secret_key}")
+
+    lsfr_machine = LsfrMachine(secret_key, cipher_length)
+    reconstructed_key = decrypt_key(
+        lsfr_machine, random_message()
+    )
+
+    print(f"Found key:  {reconstructed_key}")
     assert secret_key == reconstructed_key
+
+
+def test_question_7():
+    message = 0b00000000001111111111
+    ciphertext = 0b01111011011001001010
