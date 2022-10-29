@@ -21,9 +21,7 @@ def test_decrypt():
     print(f"Secret key: {secret_key}")
 
     lsfr_machine = LsfrMachine(secret_key, cipher_length)
-    reconstructed_key = decrypt_key(
-        lsfr_machine, random_message()
-    )
+    reconstructed_key = decrypt_key(lsfr_machine, random_message())
 
     print(f"Found key:  {reconstructed_key}")
     assert secret_key == reconstructed_key
