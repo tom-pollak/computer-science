@@ -21,9 +21,7 @@ with open(FILE_PATH, "rb") as f:
     for i in range(number_of_segments):
         segment = buffer[i*BUF_SIZE: (i+1)*BUF_SIZE]
         print(f"{i} Length of segment: {len(segment)}")
-        sockTX.sendto(segment, RECV)
-
 import hashlib
+
 hash = hashlib.md5(open(FILE_PATH, "rb").read()).hexdigest()
 sockTX.sendto(bytes(hash, 'utf-8'), RECV)
-

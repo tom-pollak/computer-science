@@ -1,4 +1,5 @@
 import hashlib
+from pickle import TRUE
 import re
 import socket
 
@@ -39,10 +40,10 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
 
                 eof = re.match(r"^(.*?)~~EOF~~", m.group(3))
                 if eof is not None:
-                    segments[m.group(2)] = eof.group(1)
+                    segments[m.group(2)] += eof.group(1)
                     break
                 else:
-                    segments[m.group(2)] = m.group(3)
+                    segments[m.group(2)] += m.group(3)
                 prev_segment = m.group(2)
                 data = ""
 
