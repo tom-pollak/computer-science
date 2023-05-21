@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<scene version="0.5.0">
+	<integrator type="bdpt">
+		<integer name="maxDepth" value="-1"/>
+	</integrator>
+	
+	<!-- Set lighting type, position, intensity, etc -->
+	<emitter type="point">
+        <point name="position" x="-10" y="10" z="20"/>
+        <spectrum name="intensity" value="2000"/>
+	</emitter>
+
+	<emitter type="constant">
+		<spectrum name="intensity" value="0.1"/>
+	</emitter>
+
+	<shape type="sphere">
+	
+		<transform name="toWorld">
+			<translate z="1"/>
+		</transform>
+
+		<!-- Assign the BRDF to the object -->
+        <bsdf type="roughconductor">
+            <string name="material" value="Au"/>
+            <string name="distribution" value="ggx"/>
+            <float name="alpha" value="0.15"/>
+		</bsdf>
+	
+	</shape>
+	
+
+	<sensor type="perspective">
+		<float name="focusDistance" value="6"/>
+		<float name="fov" value="37.8664"/>
+		<string name="fovAxis" value="x"/>
+		<transform name="toWorld">
+
+			<lookat target="0, 0, 0" origin="0, 0, 7" up="0, 1, 0"/>
+		</transform>
+
+		<sampler type="ldsampler">
+			<integer name="sampleCount" value="512"/>
+		</sampler>
+		
+
+		<film type="hdrfilm">
+			<boolean name="banner" value="false"/>
+			<integer name="height" value="512"/>
+			<string name="pixelFormat" value="rgb"/>
+			<integer name="width" value="683"/>
+
+			<rfilter type="gaussian"/>
+		</film>
+	</sensor>
+
+	
+	
+	
+</scene>
